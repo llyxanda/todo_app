@@ -1,12 +1,11 @@
 
-##
-Node Todo App
+# Node Todo App
 
-##
-Description
+## Description
 
-Check out the sample project at http://tapwash.com
-**We want you to create something similiar that can:**
+Check out the sample project at http://tapwash.com if you haven't already
+
+**We want you to create something similiar that can:** 
 * Display Todos
 * Add Todos
 * Delete Specific Todos
@@ -14,7 +13,7 @@ Check out the sample project at http://tapwash.com
 
 So basically, recreate that app
 
-**Bonus:**
+**Bonus:** 
 * Edit Todos
 * Change the Todos to users or something else
 * Style it to make it look nice
@@ -26,23 +25,15 @@ We have the basic skeleton of the app prepared for you in our repo
 The task should be fairly straight forward and is expected to take
 about 2-6 hours to complete
 
-##
-Git Info
+## Git Info
 
-Installation:
-```
-// Windows
-
-// Linux/Mac
-```
 Installation:
 https://www.atlassian.com/git/tutorials/install-git
 
 We'd recommend you to use the terminal for git it, in order
 to get comfy with it, unless of course you already are
 
-##
-mongoDB and Mongoose Info
+## mongoDB and Mongoose Info
 
 Local nstallation:
 https://docs.mongodb.com/manual/installation/
@@ -60,8 +51,7 @@ The url should look something like this:
 
 mongodb://userX:pass123@ds1010101.mlab.com:101010/your-db-name
 
-##
-Node info
+## Node JS info
 
 Installation:
 https://nodejs.org/en/

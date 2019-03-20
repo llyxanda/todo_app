@@ -6,6 +6,7 @@
 Check out the sample project at http://tapwash.com if you haven't already
 
 **We want you to create something similiar that can:** 
+
 * Display Todos
 * Add Todos
 * Delete Specific Todos
@@ -14,6 +15,7 @@ Check out the sample project at http://tapwash.com if you haven't already
 So basically, recreate that app
 
 **Bonus:** 
+
 * Edit Todos
 * Change the Todos to users or something else
 * Style it to make it look nice
@@ -27,7 +29,7 @@ about 2-6 hours to complete
 
 ## Git Info
 
-Installation:
+Installation: 
 https://www.atlassian.com/git/tutorials/install-git
 
 We'd recommend you to use the terminal for git it, in order
@@ -35,11 +37,11 @@ to get comfy with it, unless of course you already are
 
 ## mongoDB and Mongoose Info
 
-Local nstallation:
+Local installation: 
 https://docs.mongodb.com/manual/installation/
 
 If you don't want to install mongoDB, we
-strongly recommend setting up an account with mlab on:
+strongly recommend setting up an account with mlab on: 
 https://mlab.com/plans/
 
 It is free and will save you a lot of time
@@ -53,7 +55,7 @@ mongodb://userX:pass123@ds1010101.mlab.com:101010/your-db-name
 
 ## Node JS info
 
-Installation:
+Installation: 
 https://nodejs.org/en/
 
 Node uses NPM as a dependency manager

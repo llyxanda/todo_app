@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Woshapp Pre Interview Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="
+    width: 100%; 
+    height: 100%; 
+    /* margin: 0px;  */
+    margin: 0 auto; 
+    padding: 0 auto; 
+    /* padding: 0px; */
+    /* display: flex; */
+    /* justify-content: center; */
+">
+    <div
+        style="
+            width: 98%;
+            margin: 0 auto;
+    ">
+
+    <h1>Woshapp Pre-Interview Task</h1>
+    
+    <p>This is a simple app that let's you display, add and delete Todos</p>
+    <p>You can play around with this to see how it works</p>
+
+   
+    
+    <h2>TODOS LIST</h2>
+    <div id="todoDataElem">
+
+    </div>
+
+    <hr />
+
+    <h2>OBJECTIVES</h2>
+    <ul>
+        <h3>We want you to create something similiar that can:</h3>
+        <li>Display Todos</li>
+        <li>Add Todos</li>
+        <li>Delete Specific Todos</li>
+        <li>Is pushed to a git repo so that we can download it</li>
+    </ul>
+    <p>So basically, recreate this app</p>
+    <ul>
+        <h3>Bonus:</h3>
+        <li>Edit Todos</li>
+        <li>Change the Todos to users or something else</li>
+        <li>Style it to make it look nice</li>
+    </ul>
+    <p>You really don't need to do any of the bonuses,</p>
+    <p>but if you're feeling confident, knock yourself out</p>
+
+    <h4>We have the basic skeleton of the app prepared for you in our repo</h4>
+    <h4>The task should be fairly straight forward and is expected to take</h4>
+    <h4>about 2-6 hours to complete</h4>
+
+    <h4>You can download the repo here: <a href="https://bitbucket.org/MIDP1/woshapp-pre-interview-todo/src">https://bitbucket.org/MIDP1/woshapp-pre-interview-todo/src</a></h4>
+</div>
+    <footer style="width: 100%; height: 300px">
+
+    </footer>
+</body>
+<script>
+    // let HOST = '127.0.0.1:5000'
+    /*******************************************************************************************************************************
+     *
+     * Dialogue Box
+     *
+     *******************************************************************************************************************************/
+    let dialogBoxElem   = document.getElementById('dialogBoxElem') // The popup dialog box
+    let dialogTextElem  = document.getElementById('dialogTextElem') // The text inside the dialog box
+
+
+    /*******************************************************************************************************************************
+     *
+     * GET TODOS
+     *
+     *******************************************************************************************************************************/
+    let todoDataElem = document.getElementById('todoDataElem')
+    /**
+     * Function to get todo data
+     * 
+     * It currently returns a promise in case you want to 
+     * make some code wait for it
+     * You can do whatever you want with it though!
+     * 
+     * It uses the fetch() api to make it easier 
+     * to grab data from our server compared to the XMLHTTPREQUEST API
+     * 
+     */
+    function getTodoData(){
+        // Have the fn return a promise
+        return new Promise((resolve, reject) => {
+            /**
+             * Use fetch to go to our server and grab api/todos
+             * It defaults to 127.0.0.1:PORT
+             */
+            fetch(`/api/todos`)
+            // Go JSON on the data
+            .then((preTodoData) => preTodoData.json())
+            // Now get the data!
+            .then((todos) => {
+                console.log('\n', new Date().toUTCString(), ': getTodos initial:\n', todos)
+                // Reset the element so we don't end up stacking it up
+                todoDataElem.innerHTML = ''
+                // Now iterate through every found todo and display them
+                todos.forEach((todo, i) => {
+                    console.log('\n', new Date().toUTCString(), ': todo:\n', todo)
+                    // ...we might need something more here!
+                    todoDataElem.innerHTML += `<p>${todo.description}</p>`
+                })
+                resolve(todos)
+            })
+            /**
+             * Kind of sloppy error handling here...but that is not
+             * our main focus on this project
+             * Feel free to improve it though, but don't lose
+             * sleep over it!
+             */
+            .catch((err) => {
+                console.log('\n', new Date().toUTCString(), ': err getTodo:\n', err)
+                
+                alert(err)
+                reject(err)
+            })
+        })
+    }
+    // So run this when starting the app
+    getTodoData().then((todos) => {
+
+    }).catch((err) => {
+        console.log('\n', new Date().toUTCString(), ': err:\n', err)
+    })
+
+    /*******************************************************************************************************************************
+     *
+     * ...and now you're on your own!
+     * We set up some comment blocks below 
+     * where you can start your work
+     * 
+     * GOOD LUCK! :D
+     *
+     *******************************************************************************************************************************/
+
+    /*******************************************************************************************************************************
+     *
+     * ADD TODO
+     *
+     *******************************************************************************************************************************/
+    
+
+    /*******************************************************************************************************************************
+     *
+     * DELETE TODO
+     *
+     *******************************************************************************************************************************/
+   
+
+</script>
+</html>

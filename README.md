@@ -5,6 +5,8 @@
 
 Check out the sample project at http://tapwash.com if you haven't already.
 
+It is written in pure vanilla HTML and JS on the frontend, while using Node JS on the backend with mongoDB as the database to store the data.
+
 **We want you to create something similiar that can:** 
 
 * Display Todos
@@ -29,6 +31,14 @@ about 2-6 hours to complete.
 
 ## Git Info
 
+Git is a version control system that is used to make it easier to
+basically just work with code. It keeps track of changes to the code,
+lets you edit, remove it etc.
+It should not be confused with GitHub, since GitHub is just a service
+which lets you host your code.
+Bitbucket, GitLab and GitHub are all three services that lets you host
+your code, while Git is a tool you can use when interacting with them.
+
 Installation: 
 https://www.atlassian.com/git/tutorials/install-git
 
@@ -36,6 +46,10 @@ We'd recommend you to use the terminal for git it, in order
 to get comfy with it, unless of course you already are.
 
 ## mongoDB and Mongoose Info
+
+mongoDB is a document oriented NoSQL database used to store data. 
+Mongoose JS meanwhile is a modeler for JS to be used in order to set rules
+for your mongoDB db in Node JS.
 
 Local installation: 
 https://docs.mongodb.com/manual/installation/
@@ -54,6 +68,12 @@ The url should look something like this:
 *mongodb://userX:pass123@ds1010101.mlab.com:101010/your-db-name*
 
 ## Node JS info
+
+Node JS is a JS runtime that is usually used to run a JS server/backend.
+So basically it lets us use JS as a server side language which is
+convenient if you are used to JS on the frontend, and/or if you want
+to have a JS stack where you have the same language between 
+server, web and mobile.
 
 Installation: 
 https://nodejs.org/en/

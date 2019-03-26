@@ -32,10 +32,12 @@ about 2-6 hours to complete.
 ## Git Info
 
 Git is a version control system that is used to make it easier to
-basically just work with code. It keeps track of changes to the code,
+basically just work with code.  
+It keeps track of changes to the code,
 lets you edit, remove it etc.
+
 It should not be confused with GitHub, since GitHub is just a service
-which lets you host your code.
+which lets you host your code.  
 Bitbucket, GitLab and GitHub are all three services that lets you host
 your code, while Git is a tool you can use when interacting with them.
 
@@ -47,7 +49,7 @@ to get comfy with it, unless of course you already are.
 
 ## mongoDB and Mongoose Info
 
-mongoDB is a document oriented NoSQL database used to store data. 
+mongoDB is a document oriented NoSQL database used to store data.  
 Mongoose JS meanwhile is a modeler for JS to be used in order to set rules
 for your mongoDB db in Node JS.
 
@@ -69,7 +71,7 @@ The url should look something like this:
 
 ## Node JS info
 
-Node JS is a JS runtime that is usually used to run a JS server/backend.
+Node JS is a JS runtime that is usually used to run a JS server/backend.  
 So basically it lets us use JS as a server side language which is
 convenient if you are used to JS on the frontend, and/or if you want
 to have a JS stack where you have the same language between 

@@ -69,13 +69,22 @@ The url should look something like this:
 
 *mongodb://userX:pass123@ds1010101.mlab.com:101010/your-db-name*
 
-## Node JS info
+## Node JS and Express JS info
 
 Node JS is a JS runtime that is usually used to run a JS server/backend.  
 So basically it lets us use JS as a server side language which is
 convenient if you are used to JS on the frontend, and/or if you want
 to have a JS stack where you have the same language between 
 server, web and mobile.
+
+Express JS is a framework to use with Node which helps you do
+many of the common things you'd want in an easier way.  
+If you are a beginner with Node, but just want to spin up a server 
+and host a website, then Express is strongly recommended.
+
+Here is a short tutorial (not necessary for this task) that teaches
+you the basics of hosting a website using Node and Express:
+https://www.tutorialspoint.com/expressjs/
 
 Installation: 
 https://nodejs.org/en/

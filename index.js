@@ -21,9 +21,10 @@ const mongoose      = require('mongoose')
 // Set a ref to mongoose Schema since we will need to use it a few times
 const Schema        = mongoose.Schema 
 // Set an env variable for your DB
-const DB_URL        = process.env.DB_URL
+const DB_URL = process.env.DB_URL || "mongodb+srv://dbUser:dbPassword@cluster0-qsr3w.gcp.mongodb.net/test?retryWrites=true&w=majority"
 // Set a port to connect to
 app.set('port', process.env.PORT || 5000)     
+var methodOverride = require('method-override')
 /*******************************************************************************************************************************
  *
  * Tell server to use Body Parser
@@ -33,6 +34,9 @@ app.set('port', process.env.PORT || 5000)
 app.use(bodyParser.urlencoded({ extended: true }))
 // Parse JSON data
 app.use(bodyParser.json())
+
+//Use method override
+app.use(methodOverride('_method'));
 /*******************************************************************************************************************************
  *
  * DB Connection and Models
@@ -112,6 +116,7 @@ app.get('/', (req, res, next) => {
     return res.sendFile(__dirname + '/web/index.html')
 })
 
+
 /*******************************************************************************************************************************
  *
  * GET TODOS
@@ -120,8 +125,34 @@ app.get('/', (req, res, next) => {
 
 /**
  * Example route for getting todo data
+
+
+app.get('/api/todos', async (req, res) => {
+    try {
+      const todos = await Todo.find()
+      res.status(200).json(todos)
+      console.log('\n', new Date().toUTCString(), ': foundTodos:\n', todos)
+    } catch (err) {
+      console.log('\n', new Date().toUTCString(), ': err foundTodos :\n', err)
+      res.status(422).json({ message: err.message })
+    }
+  })
+
+
+app.post('/api/todos', (req, res) => {
+    const todo = new Todo({
+      description: req.body.name
+    })
+  
+    try {
+      const newTodo = await todo.save()
+      res.status(200).json(newTodo)
+    } catch (err) {
+      res.status(422).json({ message: err.message })
+    }
+  })  
  */
-app.get('/api/todos', (req, res, next) => {
+ app.get('/api/todos', (req, res, next) => {
     /**
      * Call the DB class we defined earlier
      * and use the find() method to find data
@@ -149,21 +180,70 @@ app.get('/api/todos', (req, res, next) => {
     })
 })
 
+
 /**
  * Seems like some stuff below is missing! :)
  */
 
-/*******************************************************************************************************************************
- *
- * POST TODO
- *
- *******************************************************************************************************************************/
+
+app.post('/api/todos', (req, res, next) => {
+    try {
+      Todo.create(req.body)
+      //res.status(200).json({ message: "Todo created"})
+      res.redirect("/")
+    } catch (err) {
+      res.status(422).json({ message: err.message })
+    }
+    
+  }
+  )  
 
 /*******************************************************************************************************************************
  *
  * DELETE TODO
  *
  *******************************************************************************************************************************/
+
+
+
+app.delete('/api/todos/:id' , (req, res, next)  => {
+    var tdId = req.params.id;
+    Todo.findByIdAndRemove(tdId )
+    .exec(function(err, delTodo){
+        if(err){
+            console.log('\n', new Date().toUTCString(), ': err delTodo :\n', err)
+            // Use 422 for errors in this project
+            return res.status(422).json(err)
+        }
+        console.log('\n', new Date().toUTCString(), ': delTodo:\n', delTodo)
+        // Use 200 for success
+        //return res.status(200).json(delTodo)
+        res.redirect("/")
+    })
+});  
+
+
+/*******************************************************************************************************************************
+ *
+ * UPDATE TODO
+ *
+ *******************************************************************************************************************************/
+
+
+app.put('/api/todos/:id' , (req, res, next)  => {
+    Todo.findByIdAndUpdate({ _id: req.params.id } , req.body )
+    .exec(function(err, upTodo){
+        if(err){
+            console.log('\n', new Date().toUTCString(), ': err upTodo :\n', err)
+            // Use 422 for errors in this project
+            return res.status(422).json(err)
+        }
+        console.log('\n', new Date().toUTCString(), ': upTodo:\n', upTodo)
+        // Use 200 for success
+        //return res.status(200).json(upTodo)
+        res.redirect("/")
+    })
+});  
 
 /*******************************************************************************************************************************
  *
